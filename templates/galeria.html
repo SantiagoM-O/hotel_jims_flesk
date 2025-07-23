@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Galería - Hotel JISM</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f3f4f8;
+      margin: 0;
+      padding: 0;
+      padding-top: 170px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #1a3c60;
+      margin-top: 30px;
+      font-size: 2.5em;
+    }
+
+    .galeria-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 15px;
+      padding: 2rem;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .galeria-container img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      cursor: pointer;
+      transition: transform 0.3s ease-in-out;
+      object-fit: cover;
+    }
+
+    .galeria-container img:hover {
+      transform: scale(1.03);
+    }
+
+    /* Estilo del modal */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      padding-top: 0;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.9);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 10px;
+      box-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
+    }
+
+    .cerrar {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      color: white;
+      font-size: 2em;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .cerrar:hover {
+      color: #ff4b4b;
+    }
+    .text_galeria {
+      text-align: center;
+      margin: 20px 0;
+      font-size: 1.5em;
+      color: #333;
+      max-width: 900px;
+      align-content: center;
+        margin-left: auto;
+        margin-right: auto;
+      padding: 0 20px;
+    }
+  </style>
+</head>
+<body>
+
+{% include 'components/header_prin.html' %}
+    <div class="text_galeria">
+  <p>📸 ¿Quieres ver cómo otros viajeros han vivido la experiencia en el Hotel Jims? Mira sus fotos y descubre todo lo que puedes vivir en una paradisiaca isla con nosotros. Diversión asegurada de tu habitación a la piscina o al club de playa, bajo un sol radiante y sobre fina arena. Deliciosos platillos en La Pérgola o exóticas bebidas en nuestro Beach Bar con el océano de fondo y la brisa en tu piel. Sin olvidar el disfrute íntimo en cálidas y confortables habitaciones para un descanso profundo y reparador.
+
+</p>
+    </div>
+
+  <div class="galeria-container">
+    {% for i in range(1, 17) %}
+      <img src="{{ url_for('static', filename='imagen/img_pre_' ~ i ~ '.png') }}" alt="Imagen {{ i }}" onclick="abrirModal(this.src)">
+    {% endfor %}
+  </div>
+
+  <!-- Modal -->
+  <div id="miModal" class="modal" onclick="cerrarModal()">
+    <span class="cerrar" onclick="cerrarModal(event)">×</span>
+    <img id="imagenAmpliada" src="">
+  </div>
+
+  <script>
+    function abrirModal(src) {
+      const modal = document.getElementById("miModal");
+      const imagen = document.getElementById("imagenAmpliada");
+      imagen.src = src;
+      modal.style.display = "flex";
+    }
+
+    function cerrarModal(event) {
+      // Evita que se cierre si se hace clic en la imagen
+      if (event && event.target.tagName === 'IMG') return;
+      document.getElementById("miModal").style.display = "none";
+    }
+  </script>
+
+</body>
+</html>

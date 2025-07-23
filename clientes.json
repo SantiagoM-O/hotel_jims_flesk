@@ -1,0 +1,112 @@
+[
+    {
+        "nombre": "paco",
+        "correo": "paco@gmail.com",
+        "telefono": "3144094047",
+        "direccion": "calle 56 #43-47",
+        "fecha_ingreso": "Sat Jul 19 2025 19:00:00 GMT-0500 (hora estándar de Colombia)",
+        "fecha_fin": "Wed Jul 30 2025 19:00:00 GMT-0500 (hora estándar de Colombia)",
+        "numero_noches": "7",
+        "habitacion": "Estándar",
+        "valor_Total": "6783000"
+    },
+    {
+        "nombre": "santiago",
+        "correo": "santiago@gmail.com",
+        "telefono": "3144094087",
+        "direccion": "calle 56 #43-63",
+        "fecha_ingreso": "Sat Jul 19 2025 19:00:00 GMT-0500 (hora estándar de Colombia)",
+        "fecha_fin": "Wed Jul 30 2025 19:00:00 GMT-0500 (hora estándar de Colombia)",
+        "numero_noches": "7",
+        "habitacion": "Suite Junior",
+        "valor_Total": "9842000"
+    },
+    {
+        "nombre": "edwar",
+        "correo": "edwar@gmail.com",
+        "telefono": "3144094080",
+        "direccion": "calle 56 #43-68",
+        "fecha_ingreso": "Sat Jul 19 2025 19:00:00 GMT-0500 (hora estándar de Colombia)",
+        "fecha_fin": "Wed Jul 30 2025 19:00:00 GMT-0500 (hora estándar de Colombia)",
+        "numero_noches": "7",
+        "habitacion": "Penthouses",
+        "valor_Total": "23275000"
+    },
+    {
+        "nombre": "qwer",
+        "correo": "qwer@gmail.com",
+        "telefono": "3144094082",
+        "direccion": "calle 56 #43-68",
+        "fecha_ingreso": "Sat Jul 19 2025 19:00:00 GMT-0500 (hora estándar de Colombia)",
+        "fecha_fin": "Wed Jul 30 2025 19:00:00 GMT-0500 (hora estándar de Colombia)",
+        "numero_noches": "5",
+        "habitacion": "Suite Ejecutiva",
+        "valor_Total": "9215000"
+    },
+    {
+        "nombre": "ert",
+        "correo": "ert@gmail.com",
+        "telefono": "3144094082",
+        "direccion": "calle 56 #43-68",
+        "fecha_ingreso": "Fri Jul 18 2025 19:00:00 GMT-0500 (hora estándar de Colombia)",
+        "fecha_fin": "Wed Jul 30 2025 19:00:00 GMT-0500 (hora estándar de Colombia)",
+        "numero_noches": "1",
+        "habitacion": "Estándar",
+        "valor_Total": "1020000"
+    },
+    {
+        "nombre": "cvb",
+        "correo": "cvb@gmail.com",
+        "telefono": "3144094082",
+        "direccion": "calle 56 #43-68",
+        "fecha_ingreso": "Sat Jul 19 2025 19:00:00 GMT-0500 (hora estándar de Colombia)",
+        "fecha_fin": "Wed Jul 30 2025 19:00:00 GMT-0500 (hora estándar de Colombia)",
+        "numero_noches": "4",
+        "habitacion": "Suite Ejecutiva",
+        "valor_Total": "7372000"
+    },
+    {
+        "nombre": "asd",
+        "correo": "asd@gmail.com",
+        "telefono": "3144094082",
+        "direccion": "calle 56 #43-68",
+        "fecha_ingreso": "Sat Jul 19 2025 19:00:00 GMT-0500 (hora estándar de Colombia)",
+        "fecha_fin": "Wed Jul 30 2025 19:00:00 GMT-0500 (hora estándar de Colombia)",
+        "numero_noches": "6",
+        "habitacion": "Suite Junior",
+        "valor_Total": "8613600"
+    },
+    {
+        "nombre": "poi",
+        "correo": "poi@gmail.com",
+        "telefono": "3144094082",
+        "direccion": "calle 56 #43-68",
+        "fecha_ingreso": "Tue Jul 22 2025 19:00:00 GMT-0500 (hora estándar de Colombia)",
+        "fecha_fin": "Wed Jul 30 2025 19:00:00 GMT-0500 (hora estándar de Colombia)",
+        "numero_noches": 8,
+        "habitacion": "Estándar",
+        "valor_Total": "7752000"
+    },
+    {
+        "nombre": "mn",
+        "correo": "mn@gmail.com",
+        "telefono": "3144094082",
+        "direccion": "calle 56 #43-68",
+        "fecha_ingreso": "Thu Jul 24 2025 19:00:00 GMT-0500 (hora estándar de Colombia)",
+        "fecha_fin": "Sat Jul 26 2025 19:00:00 GMT-0500 (hora estándar de Colombia)",
+        "numero_noches": 2,
+        "habitacion": "Penthouses",
+        "valor_Total": "7000000"
+    },
+    {
+        "nombre": "hg",
+        "correo": "hg@gmail.com",
+        "telefono": "3144094082",
+        "direccion": "calle 56 #43-68",
+        "fecha_ingreso": "Wed Jul 23 2025 19:00:00 GMT-0500 (hora estándar de Colombia)",
+        "fecha_fin": "Fri Jul 25 2025 19:00:00 GMT-0500 (hora estándar de Colombia)",
+        "numero_noches": 2,
+        "habitacion": "Suite Ejecutiva",
+        "valor_Total": "3800000"
+    }
+]

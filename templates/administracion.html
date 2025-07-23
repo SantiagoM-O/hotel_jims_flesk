@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Administracion - Hotel JISM</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles_administracion.css') }}">
+
+</head>
+
+<body>
+    <h1> - Hotel JISM - </h1>
+    <h2>Ingresa el Usuario</h2>
+    <form id="buscar_admin" action="/buscar_admin" method="post">
+        <label>Usuario : <input type="text" name="usuario" required></label><br>
+        <label>Contraseña : <input type="text" name="contraseña" required></label><br><br>
+        <div class="boton">
+            <button type="submit">Acceder</button>
+        </div>
+
+    </form>
+
+    {% if mensaje %}
+    <p>{{ mensaje }}</p>
+    {% elif resultado%}
+
+    {% endif %}
+
+    <hr>
+    <p><a href="/formulario">🔍 ¿No estas registrado? Ingresa un cliente aquí</a></p>
+    <div class="boton">
+        <button><a href="/" class="ir_inicio">Ir a Inicio</a></button>
+    </div>
+</body>
+
+</html>

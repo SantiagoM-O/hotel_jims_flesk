@@ -1,0 +1,42 @@
+<head>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles_index.css') }}">
+  <!-- otros estilos y scripts -->
+</head>
+  
+  
+  <header id="header" class="header_fixed_scroll">
+    <div class="header_uno_top">
+      <div class="izquierda_HUT">
+        <a href="{{ url_for('index') }}"><img id="img_header_uno_top"
+            src="{{ url_for('static', filename='imagen/icon.png') }}" alt="Hotel jims" align="left"></a>
+        <h1> Hotel jims </h1>
+      </div>
+      <div class="derecha_HUT">
+        <div class="boton_reservar">
+          <a href="{{ url_for('formulario') }}" alt="Reservar"> Reservar</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="header_dos_botones">
+      <ul id="listaopciones" class="listaopciones">
+        <li class="habitaciones">
+          <a href="{{ url_for('habitaciones') }}">Habitaciones</a>
+        </li>
+        <li class="Reservar">
+          <a href="{{ url_for('formulario') }}">Reservar</a>
+        </li>
+        <li class="Galeria">
+          <a href="{{ url_for('galeria') }}">Galeria</a>
+        </li>
+        <li class="Contactanos">
+          <a href="{{ url_for('index') }}#contacto">Contactanos</a>
+        </li>
+
+        <li class="Administracion">
+          <a href="{{ url_for('ir_administracion') }}">Administracion</a>
+        </li>
+      </ul>
+    </div>
+
+  </header>

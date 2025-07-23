@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Buscar Cliente - Hotel JISM</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles_buscar_clientes.css') }}">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/themes/material_blue.css">
+
+</head>
+
+<body>
+  <h1> - Hotel JISM - </h1>
+  <h2>Buscar Cliente</h2>
+
+  <div class="botones_buscar">
+    <button type="submit" id="buscarPorNombre">Buscar por nombre</button><br>
+    <button type="submit" id="buscarPorFecha">Buscar por fecha</button><br>
+  </div>
+  <div id="busquedaPorNombre" style="display: {% if resultado or mensaje %}contents{% else %}none{% endif %};">
+    <form action="/buscar_cliente" method="post">
+      <label>Nombre o correo: <input type="text" name="busqueda" required></label><br><br>
+      <div class="boton">
+        <button type="submit">Buscar</button>
+      </div>
+
+    </form>
+
+
+    {% if resultado %}
+    <h3>Resultado:</h3>
+    <p><strong>Nombre:</strong> {{ resultado.nombre }}<br>
+      <strong>Correo:</strong> {{ resultado.correo }}<br>
+      <strong>Telefono:</strong> {{ resultado.telefono }}<br>
+      <strong>Direccion:</strong> {{ resultado.direccion }}<br>
+      <strong>Fecha de ingreso:</strong> {{ resultado.fecha_ingreso }}<br>
+      <strong>Fecha de salida:</strong> {{ resultado.fecha_fin }}<br>
+      <strong>Numero de Dias:</strong> {{ resultado.numero_noches }}<br>
+      <strong>Habitacion:</strong> {{ resultado.habitacion }}<br>
+      <strong>Valor Total:</strong> {{ resultado.valor_Total }}
+    </p>
+
+    {% elif mensaje %}
+    <p style="color: red;">{{ mensaje }}</p>
+    {% endif %}
+  </div>
+
+  <div id="busquedaPorFecha"
+    style="display: {% if resultados_fecha or mensaje_fecha %}contents{% else %}none{% endif %};">
+    <form action="/buscar_cliente_fecha" method="post">
+
+      <label class="label_fechas" for="fechaIngreso">Fecha de ingreso:</label><br>
+      <input type="date" id="fechaIngreso" name="fecha_inicio" placeholder="Selecciona la fecha"><br>
+
+      <label class="label_fechas" for="fechaSalida">Fecha de salida:</label><br>
+      <input type="date" id="fechaSalida" name="fecha_fin" placeholder="Selecciona la fecha"><br>
+      <br><br>
+      <div class="boton">
+        <button type="submit">Buscar</button>
+      </div>
+    </form>
+
+    {% if resultados_fecha %}
+    <h3>Resultados por rango de fechas:</h3>
+    {% for cliente in resultados_fecha %}
+    <div class="resultado-cliente">
+      <p> 
+      <strong>Nombre:</strong> {{ cliente.nombre }}<br>
+      <strong>Correo:</strong> {{ cliente.correo }}<br>
+      <strong>Telefono:</strong> {{ cliente.telefono }}<br>
+      <strong>Direccion:</strong> {{ cliente.direccion }}<br>
+      <strong>Fecha de ingreso:</strong> {{ cliente.fecha_ingreso }}<br>
+      <strong>Fecha de salida:</strong> {{ cliente.fecha_fin }}<br>
+      <strong>Numero de Dias:</strong> {{ cliente.numero_noches }}<br>
+      <strong>Habitacion:</strong> {{ cliente.habitacion }}<br>
+      <strong>Valor Total:</strong> {{ cliente.valor_Total }}
+      </p>
+      <hr>
+    </div>
+    {% endfor %}
+    {% elif mensaje_fecha %}
+    <p style="color: red;">{{ mensaje_fecha }}</p>
+    {% endif %}
+  </div>
+
+
+  <p><a href="/formulario">🔍 ¿No estas registrado? Ingrese cliente aquí</a></p>
+
+  <div class="boton">
+    <button><a href="/" class="ir_inicio">Ir a Inicio</a></button>
+  </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/es.js"></script>
+
+<script>
+  document.getElementById("buscarPorNombre").addEventListener("click", function () {
+    document.getElementById("busquedaPorNombre").style.display = "contents";
+    document.getElementById("busquedaPorFecha").style.display = "none";
+  });
+
+  document.getElementById("buscarPorFecha").addEventListener("click", function () {
+    document.getElementById("busquedaPorFecha").style.display = "contents";
+    document.getElementById("busquedaPorNombre").style.display = "none";
+  });
+
+  flatpickr("#fechaIngreso", {
+    dateFormat: "Y-m-d",
+    locale: "es"
+  });
+  flatpickr("#fechaSalida", {
+    dateFormat: "Y-m-d",
+    locale: "es"
+  });
+</script>
+
+
+</html>

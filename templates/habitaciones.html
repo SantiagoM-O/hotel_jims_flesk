@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Habitaciones - Hotel JISM</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles_habitaciones.css') }}">
+
+</head>
+
+<body>
+
+{% include 'components/header_prin.html' %}
+
+  <div class="habitacionesDisponibles">
+
+    <!-- Estándar -->
+    <div class="habitacion-card">
+      <div class="imagen">
+        <img src="{{ url_for('static', filename='imagen/Habitacion_Estándar.png') }}" alt="Habitación Estándar">
+        <ul>
+          <li>Caja de seguridad</li>
+          <li>Amenities de lujo</li>
+          <li>Aire acondicionado</li>
+          <li>Room Service 24h</li>
+        </ul>
+      </div>
+      <div class="info">
+        <h2>Estándar</h2>
+        <p class="subinfo">1 cama King · 2 huéspedes · 25-28 m²</p>
+        <p>Ambiente acogedor ideal para parejas o viajeros de negocios. Vista a jardines con eco-macetas o fachada principal.</p>
+        <p class="desayuno">☕ Desayuno incluido</p>
+        <div class="precio">
+          <p class="actual">1.020.000 COP</p>
+          <p class="por-noche">Por noche</p>
+          <button class="reservar" > <a href="{{ url_for('formulario') }}">Reservar</a></button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Suite Junior -->
+    <div class="habitacion-card">
+      <div class="imagen">
+        <img src="{{ url_for('static', filename='imagen/Suites_Junior.png') }}" alt="Suite Junior">
+        <ul>
+          <li>Balcón con vista al mar</li>
+          <li>Jacuzzi privado</li>
+          <li>Café y minibar gratuitos</li>
+          <li>TV inteligente + escritorio de trabajo</li>
+        </ul>
+      </div>
+      <div class="info">
+        <h2>Suite Junior</h2>
+        <p class="subinfo">1 cama King · 2 huéspedes · 35-40 m²</p>
+        <p>Perfecta para escapadas románticas o estadías relajantes. Amplia área de descanso y decoración moderna.</p>
+        <p class="desayuno">☕ Desayuno incluido</p>
+        <div class="precio">
+          <p class="actual">1.480.000 COP</p>
+          <p class="por-noche">Por noche</p>
+          <button class="reservar" > <a href="{{ url_for('formulario') }}">Reservar</a></button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Suite Ejecutiva -->
+    <div class="habitacion-card">
+      <div class="imagen">
+        <img src="{{ url_for('static', filename='imagen/Suite_Ejecutiva.png') }}" alt="Suite Ejecutiva">
+        <ul>
+          <li>Área de sala y comedor privados</li>
+          <li>Acceso exclusivo al Lounge Ejecutivo</li>
+          <li>Ducha tipo lluvia con aromaterapia</li>
+          <li>Check-in/out preferencial y personalizado</li>
+        </ul>
+      </div>
+      <div class="info">
+        <h2>Suite Ejecutiva</h2>
+        <p class="subinfo">1 cama King · 2 huéspedes · 45-50 m²</p>
+        <p>Diseñada para altos ejecutivos o parejas exigentes que buscan privacidad, lujo y servicios exclusivos.</p>
+        <p class="desayuno">☕ Desayuno incluido</p>
+        <div class="precio">
+          <p class="actual">1.900.000 COP</p>
+          <p class="por-noche">Por noche</p>
+          <button class="reservar" > <a href="{{ url_for('formulario') }}">Reservar</a></button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Penthouses -->
+    <div class="habitacion-card">
+      <div class="imagen">
+        <img src="{{ url_for('static', filename='imagen/Penthouses.png') }}" alt="Penthouses">
+        <ul>
+          <li>Terraza privada con vista panorámica</li>
+          <li>Jacuzzi + zona BBQ</li>
+          <li>4 sofás cama de lujo</li>
+          <li>5 baños privados + cocina equipada</li>
+        </ul>
+      </div>
+      <div class="info">
+        <h2>Penthouses</h2>
+        <p class="subinfo">2 camas King · 2 camas dobles · 4 sofá camas</p>
+        <p>El epítome del lujo y espacio. Ideal para familias grandes o reuniones privadas con puesta de sol inolvidable.</p>
+        <p class="desayuno">☕ Desayuno incluido</p>
+        <div class="precio">
+          <p class="actual">3.500.000 COP</p>
+          <p class="por-noche">Por noche</p>
+          <button class="reservar" > <a href="{{ url_for('formulario') }}">Reservar</a></button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+
+</html>

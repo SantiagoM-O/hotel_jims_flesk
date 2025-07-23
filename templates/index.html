@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles_index.css') }}">
+    <title>Hotel jims</title>
+    <link rel="icon" href="imagenes/icon.png" type="imagen/png" />
+
+
+
+</head>
+
+
+
+<body>
+    <div id="content">
+
+        {% include 'components/header_prin.html' %}
+
+        <main>
+
+            <div class="main_uno">
+                <div class="carousel">
+                    <div class="carousel-slide active">
+                        <img src="{{ url_for('static', filename='imagen/hotel_img1.jpg') }}" alt="Imagen 1"
+                            class="carousel-img">
+                        <div class="overlay">
+                            <h2>Hotel JIMS</h2>
+                            <p>Disfruta de una experiencia única en el corazón del Caribe colombiano.</p>
+                        </div>
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="{{ url_for('static', filename='imagen/hotel_img2.png') }}" alt="Imagen 2"
+                            class="carousel-img">
+                        <div class="overlay">
+                            <h2>Hotel JIMS</h2>
+                            <p>Especial ubicación para disfrutar de aguas cristalinas y arena fina</p>
+                        </div>
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="{{ url_for('static', filename='imagen/habitacion_uno.png') }}" alt="Imagen 3"
+                            class="carousel-img">
+                        <div class="overlay">
+                            <h2>Hotel JIMS</h2>
+                            <p>Un lugar donde la naturaleza y el lujo se encuentran.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <table class="tabla_uno">
+                    <tr>
+                        <td>Entrada</td>
+                        <td>Salida</td>
+                        <td>ocupacion</td>
+                        <td>Reservar</td>
+
+                    </tr>
+                    <tr>
+                        <td>05 Jul 2025</td>
+                        <td>06 Jul 2025</td>
+                        <td>2 Adultos- 0 Niños - 0 Bebés</td>
+
+                        <td class="boton_tabla"><a href="{{ url_for('formulario') }}">Reservar</a></td>
+                    </tr>
+                </table>
+            </div>
+            <script>
+                let currentSlide = 0;
+                const slides = document.querySelectorAll('.carousel-slide');
+
+                function showSlide(index) {
+                    slides.forEach(slide => slide.classList.remove('active'));
+                    slides[index].classList.add('active');
+                }
+
+                setInterval(() => {
+                    currentSlide = (currentSlide + 1) % slides.length;
+                    showSlide(currentSlide);
+                }, 4000); // Cambia cada 4 segundos
+            </script>
+            <br>
+
+            <div class="main_dos">
+
+                <img id="hotel_img2" src="{{ url_for('static', filename='imagen/hotel_img2.png') }}">
+                <img id="img_dos_main_dos" src="{{ url_for('static', filename='imagen/icon.png') }}" alt="Hotel jims">
+
+                <div class="text_main_dos">
+                    <h4>Hotel JIMS</h4>
+                    <h1>En el caribe colombiano</h1>
+                    <p>El mito, la belleza natural y la diversión inigualable se entrelazan en el JIMS Hotel. A un paso
+                        del histórico casco de Santa Marta, este impresionante resort te sitúa cerca de las más
+                        maravillosas atracciones naturales y las ciudades más pintorescas. Con la majestuosa Sierra
+                        Nevada como telón de fondo, una playa 'Bandera Azul' a tus pies y la más exquisita gastronomía
+                        del Caribe a tu disposición, tu estadía se convertirá en una experiencia inolvidable.</p>
+
+                </div>
+
+            </div>
+            <br>
+            <div class="main_tres">
+                <div class="main_tres_GHR">
+                    <div class="img_main_tres">
+                        <img src="{{ url_for('static', filename='imagen/Gastronomía.png') }}">
+                    </div>
+                    <div>
+                        <h3>Gastronomía</h3>
+                        <p>Diversidad y lugares con diseño único son los pilares de nuestros 4 restaurantes: Wata, Muo,
+                            Casa Bonita y Bésame Morenita.
+                        </p>
+                    </div>
+                </div>
+                <div class="main_tres_GHR">
+                    <div class="img_main_tres">
+                        <img src="{{ url_for('static', filename='imagen/Habitaciones.png') }}">
+                    </div>
+                    <div>
+                        <h3>Habitaciones</h3>
+                        <p>Inspiradas en la cultura sanandresana con elementos que resaltan la esencia de la isla.
+                        </p>
+                    </div>
+                </div>
+                <div class="main_tres_GHR">
+                    <div class="img_main_tres">
+                        <img src="{{ url_for('static', filename='imagen/Rooftop.png') }}">
+                    </div>
+                    <div>
+                        <h3>Rooftop</h3>
+                        <p>Sumérgete en un ambiente tranquilo de zonas húmedas, bar y snack bar con vista directa a la
+                            playa.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </main>
+
+        <br>
+        <footer>
+            <div class="footer_container">
+                <div class="footer_flex_left" id="contacto">
+                    <div class="footer_flex_left_top">
+                        <div class="footer_flex_left_top_left">
+                            <img id="img_header_uno_top" src="{{ url_for('static', filename='imagen/icon.png') }}">
+                        </div>
+                        <div class="footer_flex_left_top_right">
+                            <p>
+                                Hotel JIMS<br>
+                                Carrera 32 # 56-68 Santa Marta, Magdalena 470006<br>
+                                312 000 0000<br>
+                                info@jims.com.co<br>
+                            </p>
+
+                        </div>
+
+                    </div class="footer_flex_left_below">
+
+                    <div>
+
+                    </div>
+                </div>
+                <div class="footer_flex_right">
+                    <div class="footer_below">
+                        <div class="contenedor-opciones">
+                            <input type="radio" name="info" id="op1" hidden>
+                            <input type="radio" name="info" id="op2" hidden>
+                            <input type="radio" name="info" id="op3" hidden>
+                            <input type="radio" name="info" id="op4" hidden>
+                            <input type="radio" name="info" id="op5" hidden>
+
+                            <ul class="menu-opciones">
+                                <li><label for="op1">Política de Privacidad</label></li>
+                                <li><label for="op2">Aviso de Privacidad</label></li>
+                                <li><label for="op3">Preguntas frecuentes</label></li>
+                                <li><label for="op4">Atención al cliente</label></li>
+                                <li><label for="op5">Términos y condiciones</label></li>
+                            </ul>
+
+                            <div class="contenido-bloque">
+                                <div class="texto" id="texto1">🔐 Cómo tratamos y protegemos tus datos.</div>
+                                <div class="texto" id="texto2">🛡️ Nuestro compromiso con tu privacidad.</div>
+                                <div class="texto" id="texto3">❓ Respuestas claras a tus preguntas comunes.</div>
+                                <div class="texto" id="texto4">📞 Estamos aquí para ayudarte cuando lo necesites.
+                                </div>
+                                <div class="texto" id="texto5">📜 Condiciones legales del uso del sitio.</div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+
+
+
+
+
+
+            </div>
+        </footer>
+
+    </div>
+
+</body>
+
+</html>

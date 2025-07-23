@@ -1,0 +1,427 @@
+body {
+  background-color: rgb(227, 243, 249);
+  background-size: cover;
+}
+
+.header_fixed_scroll {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  /* O 100% 
+    border-radius: 0 !important;*/
+  z-index: 1000;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  height: 80px;
+}
+
+.header_uno_top {
+  background-color: rgb(201, 238, 249);
+  color: black;
+  border: 01px solid black;
+  background-size: cover;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.izquierda_HUT {
+  background-color: rgb(201, 238, 249);
+  color: black;
+  border: 01px solid rgba(249, 249, 249, 0);
+  background-size: cover;
+  display: flex;
+
+}
+
+#img_header_uno_top {
+  width: 40px;
+  padding: 20px;
+  border-top: 15px;
+
+}
+
+#img_header_uno_top:hover {
+  transform: translateY(-5px);
+  /* Mueve el botón hacia arriba */
+  cursor: pointer;
+}
+
+
+.boton_reservar {
+  text-decoration-color: rgba(255, 255, 255, 0);
+  display: flex;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  justify-content: center;
+  align-items: center;
+  gap: 0 35px;
+  list-style: none;
+  background-color: brown;
+  color: white;
+  border: 01px solid rgba(249, 249, 249, 0);
+  width: 100px;
+  height: 60px;
+  text-align: center;
+  background-size: cover;
+  border-radius: 15px;
+  transition: all 0.3s ease;
+
+}
+
+.boton_reservar:hover {
+  transform: translateY(-5px);
+  /* Mueve el botón hacia arriba */
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+  /* Añade sombra para efecto flotante */
+  cursor: pointer;
+}
+
+.boton_reservar a {
+  color: white;
+  text-decoration-color: transparent;
+}
+
+.boton_reservar a:hover {
+  color: black;
+}
+
+.header_dos_botones {
+  color: black;
+  background-color: rgb(201, 238, 249);
+  border: 01px solid black;
+}
+
+.listaopciones {
+  display: flex;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  justify-content: center;
+  align-items: center;
+  gap: 0 35px;
+  list-style: none;
+  color: black;
+}
+
+
+.listaopciones a {
+  color: black;
+  text-decoration-color: rgba(255, 255, 255, 0);
+
+}
+
+.listaopciones a:hover {
+  color: brown;
+
+}
+
+/* Main*/
+
+.main_uno {
+  padding-top: 150px;
+  position: relative;
+  width: 100%;                                                                    
+  height: 80%;
+  margin: auto;
+  border-radius: 2cap;
+}
+
+.carousel {
+  position: relative;
+  height: 400px;
+  overflow: hidden;
+  border-radius: 2cap
+}
+
+.carousel-slide {
+  display: none;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.carousel-slide.active {
+  display: block;
+}
+
+.carousel-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(70%);
+}
+
+.overlay {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  text-shadow: 2px 2px 4px black;
+}
+
+.overlay h2 {
+  font-size: 36px;
+  margin: 0;
+}
+
+.overlay p {
+  font-size: 18px;
+  margin-top: 10px;
+}
+
+.tabla_uno {
+  position: absolute;
+  top: 65%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgb(227 243 249 / 54%);
+  border-radius: 10px;
+  width: 95%;
+  text-align: center;
+  border-spacing: 0;
+}
+
+
+.tabla_uno td {
+  padding: 8px 12px;
+  border-right: 1px solid #a52a2a;
+  vertical-align: middle;
+}
+
+.tabla_uno tr:nth-child(2) td {
+  font-weight: bold;
+}
+
+
+.boton_tabla {
+  text-decoration-color: rgba(255, 255, 255, 0);
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  justify-content: center;
+  align-items: center;
+  gap: 0 45px;
+  list-style: none;
+  background-color: brown;
+  color: white;
+  border: 01px solid rgba(249, 249, 249, 0);
+  width: 100px;
+  height: 60px;
+  text-align: center;
+  background-size: cover;
+  border-radius: 15px;
+  transition: all 0.3s ease;
+
+}
+
+.boton_tabla:hover {
+  transform: translateY(-5px);
+  /* Mueve el botón hacia arriba */
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+  /* Añade sombra para efecto flotante */
+  cursor: pointer;
+}
+
+.boton_tabla a {
+  color: white;
+  text-decoration-color: transparent;
+}
+
+.boton_tabla a:hover {
+  color: black;
+}
+
+
+.main_dos {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  gap: 20px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  position: relative;
+  padding: 40px 0;
+  border-radius: 2cap;
+}
+
+#hotel_img2 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  /* Asegura que la imagen esté detrás del contenido */
+}
+
+.main_dos img {
+  width: 100%;
+  height: 100%;
+  border-radius: 2cap;
+  opacity: 0.3;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+#img_dos_main_dos {
+  position: static;
+  padding: 0;
+  max-width: 120px;
+  width: 100%;
+  height: auto;
+  opacity: 1;
+  margin-left: 20px;
+}
+
+#img_dos_main_dos:hover {
+  transform: translateY(-5px);
+  cursor: pointer;
+}
+
+.text_main_dos {
+
+  position: absolute;
+  flex: 1 1 300px;
+  min-width: 250px;
+  max-width: 600px;
+  padding: 20px;
+  box-sizing: border-box;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  position: static;
+  left: auto;
+  top: auto;
+  width: auto;
+  border-spacing: unset;
+}
+
+.main_tres {
+  background-color: #fdf2ea;
+  display: flex;
+  border-radius: 2cap;
+}
+
+.main_tres_GHR {
+  left: 35%;
+  width: 95%;
+  background-color: rgba(206, 187, 158, 1);
+  border-spacing: 0;
+  max-width: 65%;
+  margin: 5px;
+  justify-content: center;
+  border-radius: 3cap;
+
+  font-style: italic;
+  text-align: center;
+}
+
+.main_tres_GHR:hover {
+  transform: translateY(-5px);
+  cursor: pointer;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+.img_main_tres img {
+  width: 100%;
+  border-radius: 3cap;
+}
+
+
+
+
+
+
+.footer_below {
+  border-top: 2px solid black;
+  margin: 10px;
+}
+
+.footer_flex_left_top {
+  background-size: cover;
+  display: flex;
+  margin: 20px;
+  justify-content: center;
+}
+
+.footer_flex_left_top_right {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  justify-content: center;
+  align-items: center;
+  border-left: 2px solid black;
+  line-height: 12px;
+  font-style: italic;
+  font-size: 13px;
+  padding-left: 8px
+}
+
+
+
+/* footer_below */
+.menu-opciones {
+  display: flex;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  justify-content: center;
+  align-items: center;
+  gap: 0 35px;
+  list-style: none;
+  color: black;
+  padding: 10px;
+  margin: 0;
+  text-align: left;
+}
+
+.menu-opciones label:hover {
+  transform: translateY(-5px);
+  cursor: pointer;
+  color: rgb(45, 129, 154);
+}
+
+.menu-opciones label {
+  cursor: pointer;
+  font-weight: normal;
+  font-size: 16px;
+  color: black;
+  transition: color 0.3s ease;
+  display: inline-block;
+}
+
+#op1:checked~.menu-opciones label[for="op1"],
+#op2:checked~.menu-opciones label[for="op2"],
+#op3:checked~.menu-opciones label[for="op3"],
+#op4:checked~.menu-opciones label[for="op4"],
+#op5:checked~.menu-opciones label[for="op5"] {
+  color: brown;
+  font-weight: bold;
+}
+
+.contenido-bloque {
+  margin-top: 20px;
+  padding: 15px;
+  background-color: rgb(201, 238, 249);
+  border-left: 4px solid brown;
+  border-radius: 6px;
+  font-size: 15px;
+  display: none;
+}
+
+/* Mostrar solo cuando una opción está seleccionada */
+#op1:checked~.contenido-bloque,
+#op2:checked~.contenido-bloque,
+#op3:checked~.contenido-bloque,
+#op4:checked~.contenido-bloque,
+#op5:checked~.contenido-bloque {
+  display: block;
+}
+
+.texto {
+  display: none;
+}
+
+#op1:checked~.contenido-bloque #texto1,
+#op2:checked~.contenido-bloque #texto2,
+#op3:checked~.contenido-bloque #texto3,
+#op4:checked~.contenido-bloque #texto4,
+#op5:checked~.contenido-bloque #texto5 {
+  display: block;
+}

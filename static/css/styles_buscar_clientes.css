@@ -1,0 +1,104 @@
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: url("/static/imagen/hotel_img2.png") no-repeat center center fixed;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px;
+  margin: 0;
+  color: #333;
+}
+  h2,h3 {
+    background-color: #bfa136;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(79, 70, 229, 0.3);
+  }
+
+  form   {
+    background-color: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+    width: 100%;
+    max-width: 400px;
+  }
+  p {
+    background-color: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+    width: 100%;
+    max-width: 400px;
+  text-align: center;
+  }
+  label {
+    display: block;
+    margin-bottom: 15px;
+    font-weight: 500;
+  }
+
+  input[type="text"],
+  input[type="email"] {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #d1d5db;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+  }
+
+  input:focus {
+    border-color: #4f46e5;
+    outline: none;
+  }
+
+  button {
+    background-color: #bfa136;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  button:hover {
+    background-color: brown;
+    transform: translateY(2px);
+    font-size: 1.2em;
+  }
+
+  #respuesta {
+    margin-top: 20px;
+    font-weight: bold;
+    color: #065f46;
+  }
+  .boton {
+    display: flex;
+    justify-content: center;
+  }
+  .botones_buscar {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 20px;
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+
+  }
+  
+  .ir_inicio {
+    text-decoration: transparent;
+    color: white ;
+    font-weight: bold;
+  }
+  .label_fechas {
+    display: inline;
+  }

@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Reserva - Hotel JIMS</title>
+
+  <link rel="stylesheet" href="../CSS/styles_reservar.css" type="text/css" />
+
+  <!-- Flatpickr CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+  <!-- Tema opcional dorado -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/themes/material_blue.css">
+</head>
+
+<body>
+
+  <main id="principal">
+    <h2> Reserva - Hotel JIMS</h2>
+
+    <label for="fechaIngreso">Fecha de ingreso:</label><br>
+    <input type="text" id="fechaIngreso" placeholder="Selecciona la fecha"><br>
+
+    <label for="fechaSalida">Fecha de salida:</label><br>
+    <input type="text" id="fechaSalida" placeholder="Selecciona la fecha"><br>
+
+    <div class="habitacionesDisponibles">
+      <div class="habitacion-card">
+        <div class="imagen">
+          <img src="../imagenes/Habitacion_Estándar.png" alt="Habitación Estándar">
+          <ul>
+            <li>Caja de seguridad</li>
+            <li>Amenities de lujo</li>
+            <li>Aire acondicionado</li>
+            <li>Room Service</li>
+          </ul>
+        </div>
+
+        <div class="info">
+          <h2>Estándar</h2>
+          <p class="subinfo">1 cama King &nbsp;·&nbsp; huéspedes 2 &nbsp;·&nbsp; 25 a 28 metros cuadrados</p>
+
+          <p>Vista a nuestra fachada o a jardines con eco-macetas.</p>
+
+
+          <p class="desayuno"><span>☕</span> Desayuno incluido</p>
+
+          <div class="precio">
+            <p class="actual">1.020.000 COP</p>
+            <p class="por-noche">Por noche</p>
+            <button value="1020000" class="reservar" onclick="calcularReserva(this.value)">Calcualar Reserva</button>
+          </div>
+        </div>
+      </div>
+      <div class="habitacion-card">
+        <div class="imagen">
+          <img src="../imagenes/Suites_Junior.png" alt="Suite Junior">
+          <ul>
+            <li>Balcón con vista al mar</li>
+            <li>Jacuzzi privado</li>
+            <li>Café y minibar gratuitos</li>
+            <li>TV inteligente y escritorio</li>
+          </ul>
+        </div>
+
+        <div class="info">
+          <h2>Suite Junior</h2>
+          <p class="subinfo">1 cama King &nbsp;·&nbsp; huéspedes 2 &nbsp;·&nbsp; 35 a 40 metros cuadrados</p>
+
+          <p>Amplia suite con área de descanso independiente y decoración moderna.</p>
+          <p class="desayuno"><span>☕</span> Desayuno incluido</p>
+
+          <div class="precio">
+            <p class="actual">1.480.000 COP</p>
+            <p class="por-noche">Por noche</p>
+            <button value="1480000" class="reservar" onclick="calcularReserva(this.value)">Calcualar Reserva</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="habitacionesDisponibles">
+      <div class="habitacion-card">
+        <div class="imagen">
+          <img src="../imagenes/Suite_Ejecutiva.png" alt="Suite Ejecutiva">
+          <ul>
+            <li>Área de sala y comedor</li>
+            <li>Acceso al Lounge Ejecutivo</li>
+            <li>Baño con ducha tipo lluvia</li>
+            <li>Check-in y check-out preferencial</li>
+          </ul>
+        </div>
+
+        <div class="info">
+          <h2>Suite Ejecutiva</h2>
+          <p class="subinfo">1 cama King &nbsp;·&nbsp; huéspedes 2 &nbsp;·&nbsp; 45 a 50 metros cuadrados</p>
+
+          <p>Diseñada para quienes buscan máximo confort y elegancia.</p>
+
+
+          <p class="desayuno"><span>☕</span> Desayuno incluido</p>
+
+          <div class="precio">
+            <p class="actual">1.900.000 COP</p>
+            <p class="por-noche">Por noche</p>
+            <button value="1900000" class="reservar" onclick="calcularReserva(this.value)">Calcualar Reserva</button>
+          </div>
+        </div>
+      </div>
+      <div class="habitacion-card">
+        <div class="imagen">
+          <img src="../imagenes/Penthouses.png" alt="Penthouses">
+          <ul>
+            <li>Terraza Privada</li>
+            <li>Jacuzzi</li>
+            <li>Parrilla de Barbacoa</li>
+            <li>Cinco Baños Privados</li>
+          </ul>
+        </div>
+
+        <div class="info">
+          <h2>Penthouses</h2>
+          <p class="subinfo"> 2 camas tamaño King &nbsp;·&nbsp; 2 Camas Dobles &nbsp;·&nbsp; Cuatro Sofa camas de lujo
+          </p>
+
+          <p> Estos espacios lujosos ncrea el escenario perfecto para atardeceres impresionantes y momentos familiares
+            inolvidables.</p>
+
+
+          <p class="desayuno"><span>☕</span> Desayuno incluido</p>
+
+          <div class="precio">
+            <p class="actual">3.500.000 COP</p>
+            <p class="por-noche">Por noche</p>
+            <button value="3500000" class="reservar" onclick="calcularReserva(this.value)">Calcualar Reserva</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+    <p id="resultado"></p>
+
+    <button id="btnReserva" onclick="irFormulario()">Reserva</button>
+
+  </main>
+  <main id="segundario">
+
+    <!-- Título principal de la página -->
+    <h1>Reserva Hotel JIMS</h1>
+
+    <!-- FORMULARIO DE RESERVA -->
+    <div class="seccion">
+      <h2>Formulario de Reserva</h2>
+      <form id="formReserva" onsubmit="return validarFormulario()">
+        <label for="nombre">Nombre completo:</label> <br>
+        <input type="text" id="nombre" name="nombre" required> <br>
+
+        <label for="correo">Correo electrónico:</label> <br>
+        <input type="email" id="correo" name="correo" required> <br>
+
+        <label for="telefono">Teléfono:</label> <br>
+        <input type="tel" id="telefono" name="telefono" required> <br>
+
+        <label for="direccion">Direccion:</label> <br>
+        <input type="text" id="direccion" name="direccion" required> <br>
+
+        <label for="fecha">Fecha de ingreso:</label> <br><br>
+        <label id="fechaIni" name="fechaIni" class="label-estilo"></label> <br>
+
+        <label for="noches">Número de noches:</label> <br><br>
+        <label id="numeroDias" name="numeroDias" class="label-estilo"></label> <br>
+
+        <label for="habitacion">Habitacion:</label> <br><br>
+        <label id="habitacion" name="habitacion" class="label-estilo"></label> <br>
+
+        <label for="valorTotal">Valor Total:</label> <br><br>
+        <label id="valorTotal" name="valorTotal" class="label-estilo"></label> <br>
+
+
+        <button class="enviarReserva" type="submit">Enviar Reserva</button>
+      </form>
+
+      <p id="mensajeReserva"></p>
+    </div>
+  </main>
+
+
+
+  <!-- Flatpickr JS -->
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  <!-- Idioma español -->
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/es.js"></script>
+
+  <script>
+    // Activar Flatpickr
+    flatpickr("#fechaIngreso", {
+      locale: "es",
+      dateFormat: "Y-m-d",
+      minDate: "today"
+    });
+
+    flatpickr("#fechaSalida", {
+      locale: "es",
+      dateFormat: "Y-m-d",
+      minDate: "today"
+    });
+
+    let dias = 0;
+    let ingreso = 0;
+    let salida = 0;
+    let habitacion;
+    let totalPagar = 0;
+
+    function calcularReserva(precio) {
+      precio = parseInt(precio)
+      ingreso = new Date(document.getElementById("fechaIngreso").value);
+      salida = new Date(document.getElementById("fechaSalida").value);
+
+      let descuento = 0;
+      totalPagar = 0;
+      if (isNaN(ingreso.getTime()) || isNaN(salida.getTime())) {
+        document.getElementById("resultado").innerText = "⚠️ Selecciona fechas válidas.";
+        return;
+      }
+
+      const diferenciaMs = salida - ingreso;
+      dias = Math.ceil(diferenciaMs / (1000 * 60 * 60 * 24));
+
+      if (dias <= 0) {
+        document.getElementById("resultado").innerText = "⚠️ La fecha de salida debe ser posterior a la de ingreso.";
+        return;
+      }
+      if (dias >= 4 && dias <= 6) {
+        descuento = 3;
+      }
+      if (dias >= 7 && dias <= 9) {
+        descuento = 5;
+      }
+      if (dias >= 10) {
+        descuento = 10;
+      }
+
+      const total = precio * dias;
+      totalPagar = total - (total * (descuento / 100));
+      if (precio == 1020000) { habitacion = "Estándar" }
+      if (precio == 1480000) { habitacion = "Suite Junior" }
+      if (precio == 1900000) { habitacion = "Suite Ejecutiva" }
+      if (precio == 3500000) { habitacion = "Penthouses" }
+
+      document.getElementById("resultado").innerHTML = `
+        🗓️ Total de noches: <strong>${dias}</strong><br>
+        🛏️ Habitación: ${habitacion}<br>
+        💰 <strong>Valor por las noches: ${total.toLocaleString("es-CO", { style: "currency", currency: "COP" })}</strong><br>
+        Descuento del ${descuento}% por las ${dias} noche(s): <br>
+        💰 <strong>$${totalPagar.toLocaleString()}</strong> 
+      `;
+    }
+    function irFormulario() {
+      document.getElementById("fechaIni").innerText = ingreso;
+      document.getElementById("numeroDias").innerText = dias;
+      document.getElementById("habitacion").innerText = habitacion;
+      document.getElementById("valorTotal").innerText = totalPagar;
+    }
+
+    // Validación del formulario de reserva
+    function validarFormulario() {
+      let nombre = document.getElementById("nombre").value;
+      let correo = document.getElementById("correo").value;
+      let noches = parseInt(document.getElementById("noches").value);
+
+      // Verifica que el nombre no esté vacío y que el número de noches sea válido
+      if (nombre.trim() === "" || isNaN(noches) || noches <= 0) {
+        document.getElementById("mensajeReserva").innerText =
+          "⚠️ Por favor completa todos los campos correctamente.";
+        return false;
+      }
+
+      // Muestra un mensaje de confirmación
+      document.getElementById("mensajeReserva").innerText =
+        "✅ Reserva enviada. ¡Gracias por elegir Hotel Dorado!";
+      return false; // evita que se recargue la página
+    }
+
+    const formulario = document.getElementById('formReserva');
+    formulario.addEventListener('submit', async function(event) {
+      event.preventDefault();
+
+      const datos = {
+        nombre: formulario.nombre.value,
+        correo: formulario.correo.value,
+        telefono: formulario.telefono.value,
+        direccion: formulario.direccion.value,
+        fecha_ingreso: formulario.fechaIni.value,
+        numero_noches: formulario.numeroDias.value,
+        habitacion: formulario.habitacion.value,
+        valor_Total: formulario.valorTotal.value,
+
+      };
+
+      const res = await fetch('/guardar_cliente', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(datos)
+      });
+
+      const respuesta = await res.text();
+      document.getElementById('respuesta').innerText = respuesta;
+      formulario.reset();
+    });
+  </script>
+
+</body>
+
+</html>
+
+
+<!-- 
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+
+  <title>Registro de Cliente - Hotel JISM</title>
+
+<style>  
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: url("/static/imagen/hotel_img2.png") no-repeat center center fixed;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px;
+  margin: 0;
+  color: #333;
+}
+
+
+  h2 {
+    background-color: #4f46e5;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(79, 70, 229, 0.3);
+  }
+
+
+  form {
+    background-color: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+    width: 100%;
+    max-width: 400px;
+  }
+  .link_regis {
+    background-color: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+    width: 100%;
+    max-width: 400px;
+  text-align: center;
+  }
+  label {
+    display: block;
+    margin-bottom: 15px;
+    font-weight: 500;
+  }
+
+  input[type="text"],
+  input[type="email"] {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #d1d5db;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+  }
+
+  input:focus {
+    border-color: #4f46e5;
+    outline: none;
+  }
+
+  button {
+    background-color: #4f46e5;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  button:hover {
+    background-color: #4f46e5;
+  }
+
+  #respuesta {
+    margin-top: 20px;
+    font-weight: bold;
+    color: #065f46;
+  }
+</style>
+</head>
+<body>
+  <h1>  - Hotel JISM - </h1>
+  <h2>Registro de Cliente</h2>
+  <form id="clienteForm">
+    <label>Nombre: <input type="text" name="nombre" required></label><br>
+    <label>Correo: <input type="email" name="correo" required></label><br>
+    <label>Telefono: <input type="text" name="telefono" required></label><br>
+    <label>Direccion: <input type="text" name="direccion" required></label><br><br>
+    <button type="submit">Enviar</button>
+  </form>
+
+  <p id="respuesta"></p>
+
+  <hr>
+  <p class="link_regis"><a href="/buscar_cliente" id="link_red">🔍 ¿Ya registraste a alguien? Buscar cliente aquí</a></p>
+
+  <script>
+    const formulario = document.getElementById('clienteForm');
+    formulario.addEventListener('submit', async function(event) {
+      event.preventDefault();
+
+      const datos = {
+        nombre: formulario.nombre.value,
+        correo: formulario.correo.value,
+        telefono: formulario.telefono.value,
+        direccion: formulario.direccion.value,
+      };
+
+      const res = await fetch('/guardar_cliente', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(datos)
+      });
+
+      const respuesta = await res.text();
+      document.getElementById('respuesta').innerText = respuesta;
+      formulario.reset();
+    });
+  </script>
+</body>
+</html>
+
+-->

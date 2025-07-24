@@ -4,7 +4,7 @@ import json
 import os
 
 app = Flask(__name__)
-
+ARCHIVO = 'clientes.json'
 
 # Mostrar el index
 @app.route('/')
@@ -47,6 +47,10 @@ def guardar_cliente():
 
     # Guardar la lista actualizada en el archivo
     with open(archivo, 'w', encoding='utf-8') as f:
+        json.dump(clientes, f, ensure_ascii=False, indent=4)
+        
+def guardar_clientes(clientes):
+    with open(ARCHIVO, 'w', encoding='utf-8') as f:
         json.dump(clientes, f, ensure_ascii=False, indent=4)
 
 
@@ -150,7 +154,41 @@ def buscar_admin():
     return render_template('administracion.html',resultado=resultado, mensaje=mensaje)
 
 
+def cargar_cliente():
+    if os.path.exists(ARCHIVO):
+        with open(ARCHIVO, 'r', encoding='utf-8') as f:
+            return json.load(f)
+    return []
 
+@app.route('/eliminar_cliente', methods=['POST'])
+def eliminar_cliente():
+    correo = request.form['correo']
+    clientes = cargar_cliente()
+    clientes = [c for c in clientes if c['correo'] != correo]
+    guardar_clientes(clientes)
+    return redirect('/buscar_cliente')
+
+@app.route('/editar_cliente', methods=['POST'])
+def editar_cliente():
+    datos = request.form
+    correo_original = datos['correo_original']
+    clientes = cargar_cliente()
+
+    for c in clientes:
+        if c['correo'] == correo_original:
+            c['nombre'] = datos['nombre']
+            c['correo'] = datos['correo']
+            c['telefono'] = datos['telefono']
+            c['direccion'] = datos['direccion']
+            c['fecha_ingreso'] = datos['fecha_ingreso']
+            c['fecha_fin'] = datos['fecha_fin']
+            c['numero_noches'] = datos['numero_noches']
+            c['habitacion'] = datos['habitacion']
+            c['valor_Total'] = datos['valor_Total']
+            break
+
+    guardar_clientes(clientes)
+    return redirect('/buscar_cliente')
 
 
 

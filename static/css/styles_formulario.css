@@ -12,123 +12,10 @@
 
     }
 
-    .header_fixed_scroll {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      /* O 100% 
-    border-radius: 0 !important;*/
-      z-index: 1000;
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      height: 80px;
-    }
-
-    .header_uno_top {
-      background-color: rgb(201, 238, 249);
-      color: black;
-      border: 01px solid black;
-      background-size: cover;
-      display: flex;
-      justify-content: space-around;
-      align-items: center;
-    }
-
-    .izquierda_HUT {
-      background-color: rgb(201, 238, 249);
-      color: black;
-      border: 01px solid rgba(249, 249, 249, 0);
-      background-size: cover;
-      display: flex;
-
-    }
-
-    #img_header_uno_top {
-      width: 40px;
-      padding: 20px;
-      border-top: 15px;
-
-    }
-
-    #img_header_uno_top:hover {
-      transform: translateY(-5px);
-      /* Mueve el botón hacia arriba */
-      cursor: pointer;
-    }
-
-
-    .boton_reservar {
-      text-decoration-color: rgba(255, 255, 255, 0);
-      display: flex;
-      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-      justify-content: center;
-      align-items: center;
-      gap: 0 35px;
-      list-style: none;
-      background-color: brown;
-      color: white;
-      border: 01px solid rgba(249, 249, 249, 0);
-      width: 100px;
-      height: 60px;
-      text-align: center;
-      background-size: cover;
-      border-radius: 15px;
-      transition: all 0.3s ease;
-
-    }
-
-    .boton_reservar:hover {
-      transform: translateY(-5px);
-      /* Mueve el botón hacia arriba */
-      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
-      /* Añade sombra para efecto flotante */
-      cursor: pointer;
-    }
-
-    .boton_reservar a {
-      color: white;
-      text-decoration-color: transparent;
-    }
-
-    .boton_reservar a:hover {
-      color: black;
-    }
-
-    .header_dos_botones {
-      color: black;
-      background-color: rgb(201, 238, 249);
-      border: 01px solid black;
-    }
-
-    .listaopciones {
-      display: flex;
-      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-      justify-content: center;
-      align-items: center;
-      gap: 0 35px;
-      list-style: none;
-      color: black;
-    }
-
-
-    .listaopciones a {
-      color: black;
-      text-decoration-color: rgba(255, 255, 255, 0);
-
-    }
-
-    .listaopciones a:hover {
-      color: brown;
-
-    }
-
     /* main */
 
     h2 {
       color: #bfa136;
-      /* Dorado elegante para títulos */
       text-decoration: solid;
     }
 
@@ -144,118 +31,6 @@
 
     }
 
-
-    .header_fixed_scroll {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      z-index: 1000;
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      height: 80px;
-    }
-
-    .header_uno_top {
-      background-color: rgb(201, 238, 249);
-      color: black;
-      border: 01px solid black;
-      background-size: cover;
-      display: flex;
-      justify-content: space-around;
-      align-items: center;
-    }
-
-    .izquierda_HUT {
-      background-color: rgb(201, 238, 249);
-      color: black;
-      border: 01px solid rgba(249, 249, 249, 0);
-      background-size: cover;
-      display: flex;
-
-    }
-
-    #img_header_uno_top {
-      width: 40px;
-      padding: 20px;
-      border-top: 15px;
-
-    }
-
-    #img_header_uno_top:hover {
-      transform: translateY(-5px);
-      /* Mueve el botón hacia arriba */
-      cursor: pointer;
-    }
-
-
-    .boton_reservar {
-      text-decoration-color: rgba(255, 255, 255, 0);
-      display: flex;
-      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-      justify-content: center;
-      align-items: center;
-      gap: 0 35px;
-      list-style: none;
-      background-color: brown;
-      color: white;
-      border: 01px solid rgba(249, 249, 249, 0);
-      width: 100px;
-      height: 60px;
-      text-align: center;
-      background-size: cover;
-      border-radius: 15px;
-      transition: all 0.3s ease;
-
-    }
-
-    .boton_reservar:hover {
-      transform: translateY(-5px);
-      /* Mueve el botón hacia arriba */
-      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
-      /* Añade sombra para efecto flotante */
-      cursor: pointer;
-    }
-
-    .boton_reservar a {
-      color: white;
-      text-decoration-color: transparent;
-    }
-
-    .boton_reservar a:hover {
-      color: black;
-    }
-
-    .header_dos_botones {
-      color: black;
-      background-color: rgb(201, 238, 249);
-      border: 01px solid black;
-    }
-
-    .listaopciones {
-      display: flex;
-      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-      justify-content: center;
-      align-items: center;
-      gap: 0 35px;
-      list-style: none;
-      color: black;
-    }
-
-
-    .listaopciones a {
-      color: black;
-      text-decoration-color: rgba(255, 255, 255, 0);
-
-    }
-
-    .listaopciones a:hover {
-      color: brown;
-
-    }
-
-    /* Main*/
 
 
     select,
@@ -273,7 +48,6 @@
 
     button {
       background-color: #bfa136;
-      /* Botón dorado */
       color: white;
       font-weight: bold;
       cursor: pointer;
@@ -281,7 +55,6 @@
 
     button:hover {
       background-color: brown;
-      /* Efecto al pasar el mouse */
       transform: translateY(03px);
       cursor: pointer;
 
@@ -384,7 +157,6 @@
 
     .label-estilo {
       display: block;
-      /* Para que tome todo el ancho como un input */
       text-align: center;
       padding: 10px;
       margin-top: 0px;
@@ -432,16 +204,12 @@
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
       transition: transform 0.5s ease;
       transform: translateX(100%);
-      /* Lo empuja hacia la derecha */
       opacity: 0;
-      /* Oculto visualmente */
       pointer-events: none;
-      /* No se puede interactuar */
     }
 
     .convertidor.visible {
       transform: translateX(0);
-      /* Lo trae de nuevo a la vista */
       opacity: 1;
       pointer-events: auto;
       background-color: white;
@@ -474,7 +242,6 @@
       position: fixed;
       /* Se posiciona respecto al body o contenedor padre */
       right: 0;
-      /* Pegado al borde derecho */
       top: 20%;
       height: 60%;
       width: 43%;
@@ -483,5 +250,4 @@
       gap: 0;
       align-items: center;
       color: #333;
-      /* Opcional: fondo para diferenciar */
     }

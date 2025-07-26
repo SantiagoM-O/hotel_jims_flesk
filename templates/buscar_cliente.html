@@ -5,80 +5,22 @@
   <meta charset="UTF-8">
   <title>Buscar Cliente - Hotel JISM</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='css/styles_buscar_clientes.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/modal.css') }}">
+
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/themes/material_blue.css">
-
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 
 </head>
 
 <body>
-  <div class="modal fade" id="editModal" tabindex="-1" role="dialog">
-  <div class="modal-dialog" role="document">
-    <form action="/editar_cliente" method="post" class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Editar Cliente</h5>
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-      </div>
-      <div class="modal-body">
-        <!-- Campos del formulario de edición -->
-        <input type="hidden" id="correo_original" name="correo_original">
-        <div class="form-group">
-          <label>Nombre</label>
-          <input type="text" id="edit_nombre" name="nombre" class="form-control">
-        </div>
-        <!-- Repite lo mismo para los demás campos que necesites, sigue este patrón: -->
-        <div class="form-group">
-          <label>Correo</label>
-          <input type="text" id="edit_correo" name="correo" class="form-control">
-        </div>
-        <div class="form-group">
-          <label>Telefono</label>
-          <input type="text" id="edit_telefono" name="telefono" class="form-control">
-        </div>
-        <div class="form-group">
-          <label>Direccion</label>
-          <input type="text" id="edit_direccion" name="direccion" class="form-control">
-        </div>
-        <div class="form-group">
-          <label>Fecha de ingreso</label>
-          <input type="date" id="edit_fecha_ingreso" name="fecha_ingreso" class="form-control">
-        </div>
-        <div class="form-group">
-          <label>Fecha de salida</label>
-          <input type="date" id="edit_fecha_fin" name="fecha_fin" class="form-control">
-        </div>
-        <div class="form-group">
-          <label>Número de noches</label>
-          <input type="number" id="edit_numero_noches" name="numero_noches" class="form-control">
-        </div>
-        <div class="form-group">
-          <label>Habitación</label>
-          <input type="text" id="edit_habitacion" name="habitacion" class="form-control">
-        </div>
-        <div class="form-group">
-          <label>Valor Total</label>
-          <input type="number" id="edit_valor_Total" name="valor_Total" class="form-control">
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button type="submit" class="btn">Guardar Cambios</button>
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-      </div>
-    </form>
-  </div>
-</div>
-
 
   <h1> - Hotel JISM - </h1>
   <h2>Buscar Cliente</h2>
   <br>
 
   <div class="botones_buscar">
-    <button type="submit" id="buscarPorNombre">Buscar por nombre</button><br>
-    <button type="submit" id="buscarPorFecha">Buscar por fecha</button><br>
+    <button type="button" id="buscarPorNombre">Buscar por nombre</button><br>
+    <button type="button" id="buscarPorFecha">Buscar por fecha</button><br>
   </div>
   <div id="busquedaPorNombre" style="display: {% if resultado or mensaje %}contents{% else %}none{% endif %};">
     <form action="/buscar_cliente" method="post">
@@ -107,26 +49,12 @@
       </p>
       <br>
       <form action="/eliminar_cliente" method="post" style="display:inline">
-          <input type="hidden" name="correo" value="{{ resultado.correo }}">
-          <button type="submit" >Borrar</button>
+        <input type="hidden" name="correo" value="{{ resultado.correo }}">
+        <button type="submit">Borrar</button>
       </form>
 
-      <button type="button" 
-          data-toggle="modal"
-          data-target="#editModal"
-          onclick="cargarDatosEditar(
-              '{{ resultado.nombre }}',
-              '{{ resultado.correo }}',
-              '{{ resultado.telefono }}',
-              '{{ resultado.direccion }}',
-              '{{ resultado.fecha_ingreso }}',
-              '{{ resultado.fecha_fin }}',
-              '{{ resultado.numero_noches }}',
-              '{{ resultado.habitacion }}',
-              '{{ resultado.valor_Total }}'
-          )">
-          Editar
-      </button>
+
+
     </div>
     {% elif mensaje %}
     <p style="color: red;" class="ir_registrar">{{ mensaje }}</p>
@@ -139,10 +67,10 @@
     <form action="/buscar_cliente_fecha" method="post">
 
       <label class="label_fechas" for="fechaIngreso">Fecha de ingreso:</label><br>
-      <input type="date" id="fechaIngreso" name="fecha_inicio" placeholder="Selecciona la fecha"><br>
+      <input type="text" id="fechaIngreso" name="fecha_inicio" placeholder="Selecciona la fecha"><br>
 
       <label class="label_fechas" for="fechaSalida">Fecha de salida:</label><br>
-      <input type="date" id="fechaSalida" name="fecha_fin" placeholder="Selecciona la fecha"><br>
+      <input type="text" id="fechaSalida" name="fecha_fin" placeholder="Selecciona la fecha"><br>
       <br><br>
       <div class="boton">
         <button type="submit">Buscar</button>
@@ -170,33 +98,27 @@
         <input type="hidden" name="correo" value="{{ cliente.correo }}">
         <button type="submit">Borrar</button>
       </form>
-      <form action="/editar_cliente" class="bt_b_eS" method="post" style="display:inline">
-        <input type="hidden" name="correo" value="{{ cliente.correo }}">
-        <button type="button"  data-toggle="modal" data-target="#editModal"
-          onclick="cargarDatosEditar('{{ cliente.nombre }}', '{{ cliente.correo }}', '{{ cliente.telefono }}', '{{ cliente.direccion }}', '{{ cliente.fecha_ingreso }}', '{{ cliente.fecha_fin }}', '{{ cliente.numero_noches }}', '{{ cliente.habitacion }}', '{{ cliente.valor_Total }}')">
-          Editar
-        </button>
-      </form>
-      
+
+
+
     </div>
     {% endfor %}
     {% elif mensaje_fecha %}
     <p style="color: red;" class="ir_registrar">{{ mensaje_fecha }}</p>
     {% endif %}
-  </div>  
-
-
-    <br>
+  </div>
+  <br>
   <div class="ir_registrar">
     <p><a href="/formulario">🔍 ¿No estas registrado? Ingrese cliente aquí</a></p>
   </div>
-  
-    <br>
-    <br>
-
-  <div class="boton">
-    <button><a href="/" class="ir_inicio">Ir a Inicio</a></button>
+  <br><br>
+  <div class="boton" onclick="location.href='/'">
+    <button href="/" >Ir a Inicio</button>
   </div>
+
+
+
+
 </body>
 <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/es.js"></script>
@@ -222,19 +144,5 @@
   });
 </script>
 
-<script>
-  function cargarDatosEditar(nombre, correo, telefono, direccion, fecha_ingreso, fecha_fin, numero_noches, habitacion, valor_Total) {
-    document.getElementById('edit_nombre').value = nombre;
-    document.getElementById('edit_correo').value = correo;
-    document.getElementById('edit_telefono').value = telefono;
-    document.getElementById('edit_direccion').value = direccion;
-    document.getElementById('edit_fecha_ingreso').value = fecha_ingreso;
-    document.getElementById('edit_fecha_fin').value = fecha_fin;
-    document.getElementById('edit_numero_noches').value = numero_noches;
-    document.getElementById('edit_habitacion').value = habitacion;
-    document.getElementById('edit_valor_Total').value = valor_Total;
-    document.getElementById('correo_original').value = correo; // Para identificar el cliente original
-  }
-</script>
 
 </html>

@@ -122,7 +122,6 @@
     }
 
     function cerrarModal(event) {
-      // Evita que se cierre si se hace clic en la imagen
       if (event && event.target.tagName === 'IMG') return;
       document.getElementById("miModal").style.display = "none";
     }

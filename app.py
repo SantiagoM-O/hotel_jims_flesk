@@ -109,8 +109,8 @@ def buscar_cliente_fecha():
 
         for c in clientes:
             try:
-                fecha_ingreso = datetime.strptime(c['fecha_ingreso'][:24], "%a %b %d %Y %H:%M:%S")
-                fecha_salida = datetime.strptime(c['fecha_fin'][:24], "%a %b %d %Y %H:%M:%S")
+                fecha_ingreso = datetime.strptime(c['fecha_ingreso'], "%Y-%m-%d")
+                fecha_salida = datetime.strptime(c['fecha_fin'], "%Y-%m-%d")
                 
                 # Comprobamos si hay intersección entre rangos
                 if fecha_ingreso <= fecha_fin and fecha_salida >= fecha_inicio:
@@ -124,7 +124,6 @@ def buscar_cliente_fecha():
         mensaje = "⚠️ No hay datos registrados aún."
 
     return render_template('buscar_cliente.html', resultados_fecha=resultados, mensaje_fecha=mensaje)
-
 
 Usuario_admin = "admin"
 Contraseña_admin = "1234"
@@ -167,30 +166,6 @@ def eliminar_cliente():
     clientes = [c for c in clientes if c['correo'] != correo]
     guardar_clientes(clientes)
     return redirect('/buscar_cliente')
-
-@app.route('/editar_cliente', methods=['POST'])
-def editar_cliente():
-    datos = request.form
-    correo_original = datos['correo_original']
-    clientes = cargar_cliente()
-
-    for c in clientes:
-        if c['correo'] == correo_original:
-            c['nombre'] = datos['nombre']
-            c['correo'] = datos['correo']
-            c['telefono'] = datos['telefono']
-            c['direccion'] = datos['direccion']
-            c['fecha_ingreso'] = datos['fecha_ingreso']
-            c['fecha_fin'] = datos['fecha_fin']
-            c['numero_noches'] = datos['numero_noches']
-            c['habitacion'] = datos['habitacion']
-            c['valor_Total'] = datos['valor_Total']
-            break
-
-    guardar_clientes(clientes)
-    return redirect('/buscar_cliente')
-
-
 
 if __name__ == '__main__':
     app.run(debug=True, port=5005)

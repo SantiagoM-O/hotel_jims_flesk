@@ -167,27 +167,29 @@
         <input type="text" id="direccion" name="direccion" required> <br>
 
         <label for="fecha">Fecha de ingreso:</label> <br><br>
-        <input type="text" id="fechaIni" name="fechaIni" class="label-estilo" readonly></label> <br>
+        <input type="text" id="fechaIni" name="fechaIni" class="label-estilo" readonly> <br>
 
-        <label for="fecha">Fecha de ingreso:</label> <br><br>
-        <input type="text" id="fechaFin" name="fechaFin" class="label-estilo" readonly></label> <br>
+        <label for="fecha">Fecha de salida:</label> <br><br>
+        <input type="text" id="fechaFin" name="fechaFin" class="label-estilo" readonly> <br>
 
         <label for="noches">Número de noches:</label> <br><br>
-        <input type="text" id="numeroDias" name="numeroDias" class="label-estilo" readonly></label> <br>
+        <input type="text" id="numeroDias" name="numeroDias" class="label-estilo" readonly> <br>
 
         <label for="habitacion">Habitacion:</label> <br><br>
-        <input type="text" id="habitacion" name="habitacion" class="label-estilo" readonly></label> <br>
+        <input type="text" id="habitacion" name="habitacion" class="label-estilo" readonly> <br>
 
         <label for="valorTotal">Valor Total:</label> <br><br>
-        <input type="text" id="valorTotal" name="valorTotal" class="label-estilo" readonly></label> <br>
+        <input type="text" id="valorTotal" name="valorTotal" class="label-estilo" readonly> <br>
 
         <button id="enviar_reservar" type="submit" class="enviarReserva"> Enviar Reserva</button>
       </form>
 
       <p id="mensajeReserva"></p>
-      <button id="irbuscar_reservar" type="submit" class="enviarReserva" style="display: none;">
-        <a href="{{ url_for('ir_administracion') }}" class="enviarReserva">
-          Ir a buscar reservas</a></button>
+      <button id="irbuscar_reservar" type="button" class="enviarReserva" href="{{ url_for('ir_administracion') }}"
+        style="display: none;">
+        <a href="{{ url_for('ir_administracion') }}" class="enviarReserva"> Ir a buscar reservas</a>
+      </button>
+
     </div>
   </main>
 
@@ -270,8 +272,8 @@
     function irFormulario() {
       document.getElementById("principal").style.display = "none";
       document.getElementById("segundario").style.display = "block";
-      document.getElementById("fechaIni").value = ingreso;
-      document.getElementById("fechaFin").value = salida;
+      document.getElementById("fechaIni").value = ingreso.toISOString().split('T')[0];
+      document.getElementById("fechaFin").value = salida.toISOString().split('T')[0];
       document.getElementById("numeroDias").value = dias;
       document.getElementById("habitacion").value = habitacion;
       document.getElementById("valorTotal").value = totalPagar;
@@ -279,50 +281,50 @@
 
 
     function validarFormulario() {
-  let nombre = document.getElementById("nombre").value;
-  let correo = document.getElementById("correo").value;
-  let telefono = document.getElementById("telefono").value;
-  let direccion = document.getElementById("direccion").value;
-  let fecha_ingreso = document.getElementById("fechaIni").value;
-  let fecha_fin = document.getElementById("fechaFin").value;
-  let numero_noches = parseInt(document.getElementById("numeroDias").value);
-  let habitacion = document.getElementById("habitacion").value;
-  let valor_Total = document.getElementById("valorTotal").value;
+      let nombre = document.getElementById("nombre").value;
+      let correo = document.getElementById("correo").value;
+      let telefono = document.getElementById("telefono").value;
+      let direccion = document.getElementById("direccion").value;
+      let fecha_ingreso = document.getElementById("fechaIni").value;
+      let fecha_fin = document.getElementById("fechaFin").value;
+      let numero_noches = parseInt(document.getElementById("numeroDias").value);
+      let habitacion = document.getElementById("habitacion").value;
+      let valor_Total = document.getElementById("valorTotal").value;
 
-  if (nombre.trim() === "" || isNaN(numero_noches) || numero_noches <= 0) {
-    document.getElementById("mensajeReserva").innerText =
-      "⚠️ Por favor completa todos los campos correctamente.";
-    return false;
-  }
+      if (nombre.trim() === "" || isNaN(numero_noches) || numero_noches <= 0) {
+        document.getElementById("mensajeReserva").innerText =
+          "⚠️ Por favor completa todos los campos correctamente.";
+        return false;
+      }
 
-  // Enviar datos al backend
-  fetch('/guardar_cliente', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      nombre,
-      correo,
-      telefono,
-      direccion,
-      fecha_ingreso,
-      fecha_fin,
-      numero_noches,
-      habitacion,
-      valor_Total
-    })
-  })
-  .then(response => response.text())
-  .then(data => {
-    document.getElementById("mensajeReserva").innerText = "✅ Reserva enviada y guardada correctamente.";
-    document.getElementById("enviar_reservar").style.display = "none";
-    document.getElementById("irbuscar_reservar").style.display = "inline";
-  })
-  .catch(error => {
-    document.getElementById("mensajeReserva").innerText = "❌ Error al guardar la reserva.";
-  });
+      // Enviar datos al backend
+      fetch('/guardar_cliente', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          nombre,
+          correo,
+          telefono,
+          direccion,
+          fecha_ingreso,
+          fecha_fin,
+          numero_noches,
+          habitacion,
+          valor_Total
+        })
+      })
+        .then(response => response.text())
+        .then(data => {
+          document.getElementById("mensajeReserva").innerText = "✅ Reserva enviada y guardada correctamente.";
+          document.getElementById("enviar_reservar").style.display = "none";
+          document.getElementById("irbuscar_reservar").style.display = "inline";
+        })
+        .catch(error => {
+          document.getElementById("mensajeReserva").innerText = "❌ Error al guardar la reserva.";
+        });
 
-  return false; // evita que se recargue la página
-}
+      return false; // evita que se recargue la página
+    }
   </script>
 
 </body>

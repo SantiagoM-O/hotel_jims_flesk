@@ -55,3 +55,15 @@ Aplicación web desarrollada con **Flask** que permite a los clientes consultar 
 
 - Acceso al panel protegido mediante usuario y contraseña.
 - Validación de datos en **frontend y backend**.
+
+---
+
+## 📎 Acceso al Proyecto
+
+El proyecto Hotel JIMS se encuentra disponible tanto en su repositorio de GitHub como desplegado públicamente en línea para pruebas y navegación.
+
+Repositorio en GitHub
+- https://github.com/SantiagoM-O/hotel_jims_flesk
+
+Proyecto en línea (Render.com)
+- https://hotel-jims-flask.onrender.com/
